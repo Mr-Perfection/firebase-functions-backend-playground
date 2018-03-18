@@ -5,3 +5,8 @@
 firebase login
 firebase init functions
 ```
+
+### Firebase Functions
+```bash
+firebase deploy --only functions
+```

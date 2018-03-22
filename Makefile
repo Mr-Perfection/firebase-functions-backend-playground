@@ -1,3 +1,2 @@
-functions:
-	firebase use haven-9bc26
-	firebase deploy --only functions
+test:
+	npm --prefix "functions" run lint

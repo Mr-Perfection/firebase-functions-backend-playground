@@ -26,6 +26,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
+            - functions/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       # run tests!
       # - run: yarn test

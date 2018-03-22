@@ -9,6 +9,9 @@ jobs:
     steps:
       - checkout
       - run: 
+          name: Delete npm dependencies...
+          command: rm -rf ./node_modules
+      - run: 
           name: Install npm dependencies...
           command: npm install
       - run: 

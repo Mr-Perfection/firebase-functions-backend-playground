@@ -9,9 +9,6 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Delete npm dependencies...
-          command: rm -rf ./node_modules
-      - run: 
           name: Install firebase-tools...
           command: sudo npm install -g firebase-tools
       - restore_cache:

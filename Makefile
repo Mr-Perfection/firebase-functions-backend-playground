@@ -1,2 +1,3 @@
+ 
 test:
-	npm --prefix "functions" run lint
+	@echo "test begins"

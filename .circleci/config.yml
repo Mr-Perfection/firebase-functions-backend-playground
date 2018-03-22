@@ -15,13 +15,13 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run: 
           name: Install npm dependencies...
-          command: npm install
+          command: sudo npm install
       - run: 
           name: Install firebase-tools...
-          command: npm install -g firebase-tools
+          command: sudo npm install -g firebase-tools
       - run: 
           name: Install npm dependencies inside functions...
-          command: npm install -prefix "functions"
+          command: sudo pm install -prefix "functions"
       - save_cache:
           paths:
             - functions/node_modules

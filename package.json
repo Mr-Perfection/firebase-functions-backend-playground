@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/Mr-Perfection/firebase-functions-backend-playground.git",
   "author": "Stephen Lee",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "npm --prefix \"functions\" run lint"
+  }
 }

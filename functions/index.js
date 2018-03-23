@@ -1,4 +1,4 @@
 "use strict";
+import newUser from "./users/newUser.js";
 
-const newUser = require("./users/newUser.js");
-exports.newUser = newUser.main;
+export { newUser };

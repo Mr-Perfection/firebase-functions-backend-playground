@@ -23,7 +23,7 @@ jobs:
 
   deploy-dev:
     docker:
-      - image: circleci/node:7.6.0
+      - image: circleci/node:7.10
     working_directory: ~/firebase-functions-backend-playground
     steps:
       - run: |
@@ -32,7 +32,7 @@ jobs:
           firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}
   deploy-prod:
     docker:
-      - image: circleci/node:7.6.0
+      - image: circleci/node:7.10
     working_directory: ~/firebase-functions-backend-playground
     steps:
       - run: |

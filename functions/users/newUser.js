@@ -27,4 +27,5 @@ const main = function(event) {
   return Promise.all([addUserPromise]);
 };
 
-exports.main = functions.auth.user().onCreate(main);
+const newUserFunction = functions.auth.user().onCreate(main);
+export default newUserFunction;

@@ -24,10 +24,16 @@ jobs:
       - image: circleci/node:7.10
     working_directory: ~/firebase-functions-backend-playground
     steps:
+      - run:
+          name: Install firebase-tools...
+          command: sudo npm install -g firebase-tools
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run: |
           echo Deploying to firebase...
           firebase use --token ${FIREBASE_DEPLOY_TOKEN} ${PROJECT_ID}
           firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}
+
   deploy-prod:
     docker:
       - image: circleci/node:7.10

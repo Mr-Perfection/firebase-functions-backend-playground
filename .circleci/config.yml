@@ -31,6 +31,7 @@ jobs:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run: |
           echo Deploying to firebase...
+          yarn predeploy
           firebase use --token ${FIREBASE_DEPLOY_TOKEN} ${PROJECT_ID}
           firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}
 
@@ -46,6 +47,7 @@ jobs:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run: |
           echo Deploying to firebase...
+          yarn predeploy
           firebase use --token ${FIREBASE_DEPLOY_TOKEN} ${PROJECT_ID}
           firebase deploy --token ${FIREBASE_DEPLOY_TOKEN}
 workflows:

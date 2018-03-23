@@ -9,14 +9,15 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run: 
           name: Install npm dependencies inside functions...
           command: npm install -prefix "functions"
       - save_cache:
           paths:
-            - functions/node_modules
-          key: dependency-cache-{{ checksum "package.json" }}
+            - ~/firebase-functions-backend-playground
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+
 
   deploy-dev:
     docker:
@@ -32,11 +33,11 @@ jobs:
       - image: circleci/node:7.10
     working_directory: ~/firebase-functions-backend-playground
     steps:
-      - run: 
+      - run:
           name: Install firebase-tools...
           command: sudo npm install -g firebase-tools
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run: |
           echo Deploying to firebase...
           firebase use --token ${FIREBASE_DEPLOY_TOKEN} ${PROJECT_ID}
